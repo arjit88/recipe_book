@@ -6,39 +6,42 @@ import {
   useLocation,
   Navigate,
 } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth"; // Firebase auth listener
-import { auth } from "./utility/firebaseConfig"; // Import firebase auth config
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./utility/firebaseConfig";
 import AuthToggle from "./components/AuthToggle";
 import ProtectedRoute from "./utility/ProtectedRoute";
 import Home from "./pages/Home";
 import RecipeDetails from "./pages/RecipeDetails";
 import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
+import "react-toastify/dist/ReactToastify.css";
+import { ClipLoader } from "react-spinners";
 
 const AppContent = () => {
   const location = useLocation();
-  const [user, setUser] = useState(null); // Track the user state (logged in or not)
-  const [loading, setLoading] = useState(true); // Track loading state while checking auth
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser); // Set user if logged in
+        setUser(currentUser);
       } else {
-        setUser(null); // Set null if user is logged out
+        setUser(null);
       }
-      setLoading(false); // Set loading to false once auth state is checked
+      setLoading(false);
     });
 
-    // Cleanup the listener when component unmounts
     return () => unsubscribe();
   }, []);
 
-  // If loading is true, show a loading spinner or message
   if (loading) {
-    return <div>Loading...</div>; // You can replace this with a more sophisticated loading spinner
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-900">
+        <ClipLoader color="#3B82F6" loading={loading} size={50} />
+      </div>
+    );
   }
 
   return (
@@ -82,7 +85,7 @@ const App = () => {
   return (
     <Router>
       <AppContent />
-      <ToastContainer /> {/* ToastContainer for notifications */}
+      <ToastContainer />
     </Router>
   );
 };
