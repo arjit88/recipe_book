@@ -54,7 +54,7 @@ const Navbar = () => {
   // Handle recipe selection
   const handleRecipeSelect = (recipeId) => {
     setShowSearchResults(false);
-    setSearchQuery(""); // Optional: Clear search bar after selection
+    setSearchQuery("");
     navigate(`/recipe/${recipeId}`);
   };
 
