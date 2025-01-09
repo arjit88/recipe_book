@@ -16,6 +16,8 @@ import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ClipLoader } from "react-spinners";
+import Footer from "./components/Footer";
+import Contact from "./pages/Contact";
 
 const AppContent = () => {
   const location = useLocation();
@@ -76,7 +78,20 @@ const AppContent = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/contact"
+          element={
+            <ProtectedRoute user={user}>
+              <Contact />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
+
+      {/* Render Footer only if not on login or signup page */}
+      {location.pathname !== "/login" && location.pathname !== "/signup" && (
+        <Footer />
+      )}
     </>
   );
 };

@@ -16,6 +16,8 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+
   const navigate = useNavigate();
 
   // Fetch user
@@ -46,7 +48,7 @@ const Navbar = () => {
 
     const debounceTimer = setTimeout(() => {
       fetchSuggestions();
-    }, 500);
+    }, 100);
 
     return () => clearTimeout(debounceTimer);
   }, [searchQuery]);
@@ -76,8 +78,29 @@ const Navbar = () => {
     }, 200);
   };
 
+  // Listen to scroll events and toggle background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-transparent text-white p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-10 px-14 w-full">
+    <nav
+      className={`${
+        scrolling ? "bg-[rgba(0,0,0,0.85)]" : "bg-transparent"
+      } text-white p-3 flex justify-between items-center fixed top-0 left-0 right-0 z-10 px-14 w-full transition-all duration-300`}
+    >
       <Link to="/">
         <img src={"/cook.png"} alt="Logo" className="w-14" />
       </Link>

@@ -48,9 +48,9 @@ const RecipeDetails = () => {
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-      <div className="flex justify-center items-center space-x-8 px-4 py-12 relative">
+      <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8 px-4 py-12 relative my-14">
         {/* Image on the Left */}
-        <div className="w-2/5 h-[35rem] relative group">
+        <div className="w-full md:w-2/5 h-[25rem] md:h-[35rem] relative group">
           <img
             src={recipe.image || "https://via.placeholder.com/400x300"}
             alt={recipe.title}
@@ -59,7 +59,7 @@ const RecipeDetails = () => {
         </div>
 
         {/* Recipe Details on the Right */}
-        <div className="w-2/5 h-[35rem] p-8 bg-white bg-opacity-70 rounded-xl backdrop-blur-lg shadow-lg overflow-y-auto">
+        <div className="w-full md:w-2/5 h-auto md:h-[35rem] p-8 bg-white bg-opacity-70 rounded-xl backdrop-blur-lg shadow-lg overflow-y-auto">
           <h1 className="text-4xl font-extrabold text-gray-800 mb-6 text-center">
             {recipe.title}
           </h1>
