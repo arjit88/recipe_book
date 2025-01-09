@@ -4,27 +4,27 @@ import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../utility/firebaseConfig";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Eye icons for toggling password visibility
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
-  const [username, setUsername] = useState(""); // Username state
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state for button spinner
-  const [passwordVisible, setPasswordVisible] = useState(false); // State for password visibility
+  const [loading, setLoading] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when signup starts
+    setLoading(true);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         toast.success("Signup successful!");
-        navigate("/"); // Redirect to home page after signup
+        navigate("/");
       })
       .catch((error) => toast.error(formatFirebaseError(error)))
-      .finally(() => setLoading(false)); // Set loading to false after signup completes
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -76,7 +76,7 @@ const Signup = () => {
               Password
             </label>
             <input
-              type={passwordVisible ? "text" : "password"} // Toggle between text and password
+              type={passwordVisible ? "text" : "password"}
               id="password"
               className="w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your password"
@@ -102,7 +102,7 @@ const Signup = () => {
             disabled={loading}
           >
             {loading ? (
-              <div className="spinner-border animate-spin w-6 h-6 border-4 border-white border-t-transparent rounded-full"></div> // Smooth spinner
+              <div className="spinner-border animate-spin w-6 h-6 border-4 border-white border-t-transparent rounded-full"></div>
             ) : (
               "Signup"
             )}
