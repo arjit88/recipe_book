@@ -137,10 +137,14 @@ const Navbar = () => {
       <div className="hidden md:flex items-center space-x-4">
         {user && (
           <div className="flex items-center">
-            <span className="mr-4 flex items-center justify-center">
+            <span className="relative mr-4 flex items-center justify-center group">
               <IoIosPerson className="text-2xl hover:text-blue-500" />
-              {user.email || "Guest"}
+              <span>{user.email || "Guest"}</span>
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 text-sm text-white bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Hi👋{user.email || "Guest"}
+              </div>
             </span>
+
             <button
               onClick={handleLogout}
               className="relative bg-red-500 hover:bg-red-600 hover:text-gray-300 px-4 py-2 rounded flex items-center group"
@@ -151,6 +155,9 @@ const Navbar = () => {
               ) : (
                 <FiLogOut />
               )}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 text-sm text-white bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                Logout
+              </div>
             </button>
           </div>
         )}
@@ -196,10 +203,17 @@ const Navbar = () => {
           {/* User and Logout in mobile menu */}
           {user && (
             <div className="flex items-center justify-between">
-              <span className="text-white">{user.email || "Guest"}</span>
+              <div></div>
+              <span className="relative mr-4 flex items-center justify-center group">
+                <IoIosPerson className="text-2xl hover:text-blue-500" />
+                <span>{user.email || "Guest"}</span>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 text-sm text-white bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  Hi👋{user.email || "Guest"}
+                </div>
+              </span>
               <button
                 onClick={handleLogout}
-                className="bg-red-500 text-white px-4 py-2 rounded"
+                className="relative bg-red-500 text-white px-4 py-2 rounded group"
                 disabled={loading}
               >
                 {loading ? (
@@ -207,6 +221,9 @@ const Navbar = () => {
                 ) : (
                   <FiLogOut />
                 )}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 text-sm text-white bg-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                  Logout
+                </div>
               </button>
             </div>
           )}

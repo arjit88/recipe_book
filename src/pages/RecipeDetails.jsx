@@ -48,7 +48,7 @@ const RecipeDetails = () => {
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-      <div className="flex justify-center items-center space-x-8 px-4 py-12 relative z-10">
+      <div className="flex justify-center items-center space-x-8 px-4 py-12 relative">
         {/* Image on the Left */}
         <div className="w-2/5 h-[35rem] relative group">
           <img
