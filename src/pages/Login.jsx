@@ -77,7 +77,6 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {/* Eye icon for toggling password visibility */}
             <span
               className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pt-6"
               onClick={() => setPasswordVisible(!passwordVisible)}
@@ -95,7 +94,7 @@ const Login = () => {
             disabled={loading}
           >
             {loading ? (
-              <div className="spinner-border animate-spin w-6 h-6 border-4 border-white border-t-transparent rounded-full"></div> // Smooth spinner
+              <div className="spinner-border animate-spin w-6 h-6 border-4 border-white border-t-transparent rounded-full"></div>
             ) : (
               "Login"
             )}
@@ -105,7 +104,7 @@ const Login = () => {
           <p>
             Don't have an account?{" "}
             <Link
-              to="/signup" // Use 'to' prop instead of href
+              to="/signup"
               className="hover:text-blue-600 hover:underline font-semibold text-white"
             >
               Sign Up
