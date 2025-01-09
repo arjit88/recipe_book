@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ClipLoader } from "react-spinners";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact";
+import Recipes from "./pages/RecipesPage";
 
 const AppContent = () => {
   const location = useLocation();
@@ -83,6 +84,14 @@ const AppContent = () => {
           element={
             <ProtectedRoute user={user}>
               <Contact />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/recipes"
+          element={
+            <ProtectedRoute user={user}>
+              <Recipes />
             </ProtectedRoute>
           }
         />

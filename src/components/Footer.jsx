@@ -29,7 +29,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="#recipes"
+                to="/recipes"
                 className="text-gray-400 hover:text-blue-500 transition duration-300"
               >
                 Recipes
@@ -59,12 +59,14 @@ const Footer = () => {
               placeholder="Enter your email"
               className="flex-grow p-2 rounded-l-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg transition duration-300"
-            >
-              Subscribe
-            </button>
+            <Link to={"/contact"}>
+              <button
+                type="submit"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg transition duration-300"
+              >
+                Subscribe
+              </button>
+            </Link>
           </form>
         </div>
       </div>
