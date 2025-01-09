@@ -8,7 +8,7 @@ export const getRecipes = async () => {
     const response = await axios.get(`${BASE_URL}/complexSearch`, {
       params: {
         apiKey: API_KEY,
-        number: 10, // Number of recipes to fetch
+        number: 10,
       },
     });
     return response.data.results;
