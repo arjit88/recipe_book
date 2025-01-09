@@ -5,7 +5,7 @@ import Signup from "../pages/Signup";
 
 const AuthToggle = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
   useEffect(() => {
     if (location.pathname === "/login") {
@@ -14,11 +14,6 @@ const AuthToggle = () => {
       setIsLogin(false);
     }
   }, [location.pathname]);
-
-  // const toggleForm = () => {
-  //   setIsLogin(!isLogin);
-  //   navigate(isLogin ? "/signup" : "/login");
-  // };
 
   return (
     <div
