@@ -6,8 +6,8 @@ import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { IoIosPerson } from "react-icons/io";
 
-const API_KEY = "7a813ccb2de44af7855accb1c25c0b69";
-const BASE_URL = "https://api.spoonacular.com/recipes";
+const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+const BASE_URL = import.meta.env.VITE_SPOONACULAR_BASE_URL;
 
 const Navbar = () => {
   const [user, setUser] = useState(null);

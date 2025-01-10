@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_KEY = "7a813ccb2de44af7855accb1c25c0b69";
-const BASE_URL = "https://api.spoonacular.com/recipes";
+const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+const BASE_URL = import.meta.env.VITE_SPOONACULAR_BASE_URL;
 
 export const getRecipes = async () => {
   try {
