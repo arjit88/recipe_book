@@ -47,12 +47,14 @@ const AppContent = () => {
     );
   }
 
+  // Conditional rendering for Navbar and Footer based on user auth status and pathname
+  const showNavbarFooter =
+    location.pathname !== "/login" && location.pathname !== "/signup";
+
   return (
     <>
       {/* Render Navbar only if not on login or signup page */}
-      {location.pathname !== "/login" && location.pathname !== "/signup" && (
-        <Navbar />
-      )}
+      {showNavbarFooter && user && <Navbar />}
 
       <Routes>
         <Route
@@ -98,9 +100,7 @@ const AppContent = () => {
       </Routes>
 
       {/* Render Footer only if not on login or signup page */}
-      {location.pathname !== "/login" && location.pathname !== "/signup" && (
-        <Footer />
-      )}
+      {showNavbarFooter && user && <Footer />}
     </>
   );
 };
