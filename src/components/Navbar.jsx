@@ -119,8 +119,23 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Desktop Menu: Centered Search Bar and User Info */}
-      <div className="flex-1 hidden md:flex justify-center relative">
+      {/* Desktop Menu */}
+      <div className="flex-1 hidden md:flex justify-center relative space-x-8">
+        <div className="flex items-center justify-center space-x-5">
+          <Link
+            to="/recipes"
+            className="text-white text-2xl font-semibold hover:text-gray-300"
+          >
+            Recipes
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white text-2xl font-semibold hover:text-gray-300"
+          >
+            Contact
+          </Link>
+        </div>
+
         <form
           onSubmit={(e) => e.preventDefault()}
           className="relative flex items-center w-1/2"

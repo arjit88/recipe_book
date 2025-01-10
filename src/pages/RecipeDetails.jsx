@@ -16,7 +16,7 @@ const RecipeDetails = () => {
         setRecipe(data);
         setLoading(false);
       } catch (err) {
-        setError("Failed to fetch recipe details. Please try again later.");
+        setError("Sorry! You exceed the daily limit quota.");
         setLoading(false);
       }
     };
@@ -34,8 +34,8 @@ const RecipeDetails = () => {
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-red-100 text-red-700">
-        <div className="p-4 text-xl font-semibold">{error}</div>
+      <div className="flex items-center justify-center min-h-screen bg-gray-800">
+        <div className="text-2xl font-semibold text-red-500">{error}</div>
       </div>
     );
   }
@@ -99,7 +99,7 @@ const RecipeDetails = () => {
               onClick={() => window.history.back()}
               className="bg-blue-600 text-white py-2 px-8 rounded-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-lg"
             >
-              Back to Recipes
+              Go Back
             </button>
           </div>
         </div>

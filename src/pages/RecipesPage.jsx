@@ -34,8 +34,8 @@ const Recipes = () => {
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-red-100 text-red-700">
-        <div className="p-4 text-xl font-semibold">{error}</div>
+      <div className="flex items-center justify-center min-h-screen bg-gray-800">
+        <div className="text-2xl font-semibold text-red-500">{error}</div>
       </div>
     );
   }
